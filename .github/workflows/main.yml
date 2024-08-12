@@ -1,0 +1,24 @@
+name: Continuos-integration
+#el on, funciona como el trigger de azure devops
+on:
+  push: 
+    branches: 
+      -master
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: bahar repo
+        uses: actions/checkout@v4.1.7
+  
+      - name: instalar NodeJS
+        uses: actions/checkout@v4.0.3
+  
+      - name: Instalar dependencias
+        run: npm install 
+        
+      - name: Ejecutar proyecto
+        run: node index.js
