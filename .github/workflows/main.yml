@@ -5,20 +5,21 @@ on:
     branches: 
       - master
 
-
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: bahar repo
-        uses: actions/checkout@v4.1.7
-  
-      - name: instalar NodeJS
-        uses: actions/checkout@v4.0.3
-  
-      - name: Instalar dependencias
+      - name: Checkout repository
+        uses: actions/checkout@v2  # Cambié a v2, que es la versión estable
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3  # Utiliza la acción correcta para instalar Node.js
+        with:
+          node-version: '14'  # O la versión de Node.js que prefieras
+
+      - name: Install dependencies
         run: npm install 
-        
-      - name: Ejecutar proyecto
+
+      - name: Run project
         run: node index.js
